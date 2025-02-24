@@ -5,8 +5,8 @@ import (
 )
 
 /*
-1. FibLogic は，フィボナッチ数計算ロジックのインターフェースです．
-2. CalclateFib メソッドを実装する際は，input 値に関して負値の考慮は不要です．(※HTTPリクエスト側の実装で対応)
+1. FibLogic は，フィボナッチ数計算ロジックのインターフェース．
+2. アルゴリズムの変更や最適化を行う際，こちらのメソッドを満たすように実装する．
 */
 type FibLogic interface {
 	CalcFib(input int) *big.Int

@@ -4,7 +4,7 @@ import (
 	"math/big"
 )
 
-// TwoStepFibCalclator は，2ステップずつ進めるフィボナッチ数計算を実装した構造体です．
+// TwoStepFibCalc は，2ステップずつ進めるフィボナッチ数計算を実装した構造体．
 type TwoStepFibCalc struct{}
 
 // FibLogic インターフェースを満たすことをチェック
@@ -15,7 +15,7 @@ func NewTwoStepFibCalc() *TwoStepFibCalc {
 	return &TwoStepFibCalc{}
 }
 
-// CalclateFib は，input として指定された n 番目に対するフィボナッチ数を返すメソッドです．
+// CalcFib は，input として指定された n 番目に対するフィボナッチ数を返すメソッド．
 func (ts *TwoStepFibCalc) CalcFib(input int) *big.Int {
 	if input <= 2 {
 		return big.NewInt(1)
