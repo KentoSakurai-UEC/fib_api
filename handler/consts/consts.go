@@ -18,6 +18,6 @@ const (
 	ErrValNum = 0
 
 	// 入力値検証関数がエラー発生時に 第２戻り値 として返すエラーメッセージ
-	ErrMsgMissingParameter = "Bad request: Specify parameter n."
-	ErrMsgInvalidParameter = "Bad request: Specify a natural number for parameter n."
+	ErrMsgMissingParameter = "Bad request: Specify parameter n"
+	ErrMsgInvalidParameter = "Bad request: Specify a natural number for parameter n"
 )

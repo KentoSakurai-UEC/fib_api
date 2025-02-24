@@ -22,5 +22,4 @@ func main() {
 	}
 
 	log.Printf("Server starting on: %s\n", port)
-	log.Fatal(http.ListenAndServe(":8080", nil))
 }
