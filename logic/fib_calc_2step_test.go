@@ -1,4 +1,4 @@
-package fiblogic
+package logic
 
 import (
 	"bufio"

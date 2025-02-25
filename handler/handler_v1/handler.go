@@ -4,19 +4,17 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/KentoSakurai-UEC/fib_api/fiblogic"
 	"github.com/KentoSakurai-UEC/fib_api/handler/consts"
 	"github.com/KentoSakurai-UEC/fib_api/handler/validation"
+	"github.com/KentoSakurai-UEC/fib_api/logic"
 )
 
-// Handler は，リクエストに応じた処理を行う．
 type Handler struct {
-	fibLogic fiblogic.FibLogic
+	businessLogic *logic.BusinessLogic
 }
 
-// Handler のコンストラクタ
-func NewHandler(fl fiblogic.FibLogic) *Handler {
-	return &Handler{fibLogic: fl}
+func NewHandler(b *logic.BusinessLogic) *Handler {
+	return &Handler{businessLogic: b}
 }
 
 // handleメソッド
@@ -32,6 +30,6 @@ func (h *Handler) FibHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// 検証通過のため，フィボナッチ数を計算
-	result := h.fibLogic.CalcFib(input)
+	result := h.businessLogic.CalcFib(input)
 	json.NewEncoder(w).Encode(NewFibCalcResponse(result.String()))
 }

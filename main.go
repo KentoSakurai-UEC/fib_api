@@ -5,15 +5,15 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/KentoSakurai-UEC/fib_api/fiblogic"
 	handlerV1 "github.com/KentoSakurai-UEC/fib_api/handler/handler_v1"
+	"github.com/KentoSakurai-UEC/fib_api/logic"
 )
 
 func main() {
-	twoStepFibCalc := fiblogic.NewTwoStepFibCalc()
+	twoStepFibCalc := logic.NewTwoStepFibCalc()
+	businessLogic := logic.NewBusinessLogic(twoStepFibCalc)
 
-	v1handler := handlerV1.NewHandler(twoStepFibCalc)
-
+	v1handler := handlerV1.NewHandler(businessLogic)
 	http.HandleFunc("/fib", v1handler.FibHandler)
 
 	port := os.Getenv("PORT")

@@ -6,8 +6,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/KentoSakurai-UEC/fib_api/fiblogic"
 	"github.com/KentoSakurai-UEC/fib_api/handler/consts"
+	"github.com/KentoSakurai-UEC/fib_api/logic"
 )
 
 func TestFibHandler(t *testing.T) {
@@ -62,7 +62,8 @@ func TestFibHandler(t *testing.T) {
 	}
 
 	// インスタンス生成
-	twoStepFibCalc := fiblogic.NewTwoStepFibCalc()
+	twoStepFibCalc := logic.NewTwoStepFibCalc()
+	businessLogic := logic.NewBusinessLogic(twoStepFibCalc)
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -71,7 +72,7 @@ func TestFibHandler(t *testing.T) {
 			rr := httptest.NewRecorder()
 
 			h := &Handler{
-				fibLogic: twoStepFibCalc,
+				businessLogic: businessLogic,
 			}
 
 			// ハンドラー呼び出し
