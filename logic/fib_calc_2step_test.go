@@ -10,7 +10,7 @@ import (
 )
 
 // https://fibonnacci.aimary.com/fibo.txt よりダウンロードしたデータを用いてテスト．
-func TestTwoStepFibCalclator(t *testing.T) {
+func TestTwoStepFibCalc_CalcFib(t *testing.T) {
 	// テストデータ読み込み
 	testdata, err := os.Open("testdata/fibo.txt")
 	if err != nil {
@@ -46,7 +46,7 @@ func TestTwoStepFibCalclator(t *testing.T) {
 		// 計算結果とテストデータを比較
 		result := twoStepFibCalculator.CalcFib(n)
 		if result.Cmp(expectedFib) != 0 {
-			t.Errorf("Failed on line %d , expected: %s, calclated: %s", line, expectedFib.String(), result.String())
+			t.Errorf("Failed on line %d , expected: %s, calculated: %s", line, expectedFib.String(), result.String())
 		}
 
 		line++

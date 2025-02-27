@@ -1,6 +1,6 @@
 package v1
 
-// handler および validation で使用するレスポンスを定義．
+// handler で使用するレスポンスを定義．
 
 // フィボナッチ数計算結果のレスポンス (正常系)
 type FibCalcResponse struct {
